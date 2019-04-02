@@ -240,13 +240,14 @@ from our own changes. We start the mix with a slightly older version
 of Clear Linux OS to demonstrate how this works.
 
 ```
-~/mix $ mixer init --local-rpms
+~/mix $ mixer init
 ```
 
 * `init` tells mixer to create the needed configuration files and
 folders in the workspace
-* `--local-rpms` tells mixer to create folders where we can later add
-our own custom RPM files
+
+Mixer will also create folders where we can later add our own custom RPM
+files.
 
 ## builder.conf
 
@@ -350,18 +351,18 @@ with the following command:
 
 ```
 ~/mix $ mixer bundle list local
-bootloader     (upstream bundle)
-kernel-native  (upstream bundle)
-os-core        (upstream bundle)
-os-core-update (upstream bundle)
 ```
 
-Both the local and upstream bundle list commands accept the --tree
-flag to show a visual representation of the inclusion relationships
-between the bundles in the mix.
+All the `mix`, `local`, and `upstream` bundle list commands accept the
+`--tree` flag to show a visual representation of the inclusion
+relationships between the bundles in the mix.
 
 
 ## Create the initial mix content
+
+Mixer uses a docker container to build the content. Make sure `docker`
+is properly configured as described in [Clear Linux
+documentation](https://clearlinux.org/documentation/clear-linux/tutorials/docker#additional-docker-configuration).
 
 ```
 ~/mix $ mixer build all
